@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: BodyPage(),
+      body: const BodyPage(),
     );
   }
 }
