@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:list_widget/ItemModel.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -48,8 +51,61 @@ class BodyPage extends StatefulWidget {
 }
 
 class _BodyPageState extends State<BodyPage> {
+  List<ItemModel> itemList = [];
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    loadData();
+    return ListView.separated(
+      itemBuilder: (context, index) {
+        return Card(
+          elevation: 4.0,
+          child: ListTile(
+            leading: const Icon(Icons.face),
+            title: Text(itemList[index].name),
+            subtitle: Text(itemList[index].phoneNumber),
+            trailing: const Icon(Icons.check),
+            onTap: () {
+              _showToast();
+            },
+          ),
+        );
+      },
+      separatorBuilder: (context, index) {
+        if (index % 4 == 0 && index != 0) {
+          return const Divider(
+            thickness: 5.0,
+            color: Colors.red,
+            height: 32.0,
+            indent: 32.0,
+            endIndent: 32.0,
+          );
+        } else {
+          return const Divider();
+        }
+      },
+      itemCount: 20,
+    );
+  }
+
+  void loadData() {
+    itemList = List.generate(
+      50,
+      (index) => ItemModel("name: $index", "Phone: $index,"),
+    );
+  }
+
+  void _showToast() {
+    // Navigator.of(context).push(MaterialPageRoute(
+    //   builder: (context) => ToastNoContext(),
+    // ));
+    Fluttertoast.showToast(
+      msg: "Item Clicked",
+      toastLength: Toast.LENGTH_LONG,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 20.0,
+      gravity: ToastGravity.TOP,
+    );
   }
 }
