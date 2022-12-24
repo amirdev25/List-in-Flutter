@@ -67,6 +67,7 @@ class _BodyPageState extends State<BodyPage> {
             trailing: const Icon(Icons.check),
             onTap: () {
               _showToast();
+              alertDialogShow(context);
             },
           ),
         );
@@ -93,6 +94,96 @@ class _BodyPageState extends State<BodyPage> {
       50,
       (index) => ItemModel("name: $index", "Phone: $index,"),
     );
+  }
+
+  void alertDialogShow(BuildContext ctx) {
+    showDialog(
+        context: ctx,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Text"),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: const [
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                  Text("this is content"),
+                ],
+              ),
+            ),
+            actions: [
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.bodyLarge,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Enable"),
+                // icon: const Icon(
+                //   Icons.check,
+                //   color: Colors.green,
+                // ),
+              ),
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Disable"),
+                // icon: const Icon(
+                //   Icons.error_outline,
+                //   color: Colors.red,
+                // ),
+              )
+            ],
+          );
+        });
   }
 
   void _showToast() {
