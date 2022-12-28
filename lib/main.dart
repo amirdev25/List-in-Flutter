@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_widget/CustomGridView.dart';
 import 'package:list_widget/GridViewBulder.dart';
 import 'package:list_widget/ItemModel.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -56,6 +57,6 @@ class BodyPage extends StatefulWidget {
 class _BodyPageState extends State<BodyPage> {
   @override
   Widget build(BuildContext context) {
-    return MyGridViewBuilder();
+    return MyCustomGridView();
   }
 }
